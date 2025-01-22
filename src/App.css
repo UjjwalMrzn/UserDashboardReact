@@ -1,0 +1,9 @@
+.nameBox , .ageBox , .locBox {
+    width: 200px;
+     height: 15px;
+     margin-top: 5px;
+      padding: 10px;
+       font-size: 16px;
+        border-Radius: 5px;
+         border: 1px solid #ccc ;
+}

@@ -4,6 +4,7 @@ import Welcome from './components/Welcome'
 import Profile from './components/Profile'
 
 import { useState } from 'react'
+import './App.css'
 
 
 // const Profiles = [
