@@ -18,44 +18,38 @@ const App = () => {
   const[location , setLocation] = useState("")
   const [profiles, setProfiles] = useState([])
   const [error, setError] = useState("")
+ 
+  const validationForm = () => {
+    if(name.trim().length < 3){
+      return "Name ERROR";
+    }
+    
+    if(isNaN(age) || age <= 0){
+      return "Age ERROR";
+    }
+
+    if(location.trim().length < 3){
+      return "Location ERROR"
+    }
+    return"";
+  };
 
   const handleSubmit = (e) =>{
-    try{
-      e.preventDefault()
-
-      setError("");
-
-      if(name.trim().length < 3){
-        setError("Name ERROR");
-        return;
-      }
-      
-      if(isNaN(age)){
-        setError("Age ERROR");
-        return;
-      }
-
-      if(location.trim().length < 3){
-        setError("Location ERROR")
-        return;
-      }
-
-      const newprofile = {name, age , location}
-      setProfiles([...profiles , newprofile])
-
-      setName('');
-      setAge('');
-      setLocation('');
-      setError('');
+    e.preventDefault()
+    const validationError = validationForm();
+    if(validationError){
+      setError(validationError);
+      return;
     }
-      catch (error) {
-      console.error("Error fetching data".error);
-      setError("Unexpected Error");
-      }
-    }
+  
+  const newprofile = {name, age , location}
+  setProfiles([...profiles , newprofile])
 
-
-
+  setName('');
+  setAge('');
+  setLocation('');
+  setError('');
+  };
   return(
     <div>
    <Header/>
@@ -86,4 +80,4 @@ const App = () => {
     </div>
   )
 }
-export default App
+export default App;
