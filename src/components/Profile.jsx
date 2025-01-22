@@ -1,5 +1,5 @@
-const Profile = ({user}) => { 
-    const{name, age, location} = user
+const Profile = ({name, age, location}) => { 
+    // const{name, age, location} = user
     return(
     <>
     <h2 style={{ textTransform : "capitalize"}}>Hello ,{name} ! Your age is {age}  and you are from {location}</h2>
